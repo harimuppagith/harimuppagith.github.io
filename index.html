@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Muppa — BI Architect & Data Visualization Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c14;
+    --bg2: #0e1420;
+    --bg3: #141c2e;
+    --card: #111827;
+    --border: #1e2d47;
+    --teal: #00c9a7;
+    --teal2: #00e5c0;
+    --blue: #3b82f6;
+    --purple: #818cf8;
+    --gold: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #8899aa;
+    --dim: #556070;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(8,12,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items:center; justify-content:space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; color:var(--teal); letter-spacing:-0.5px; }
+  .nav-links { display:flex; gap:28px; list-style:none; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.3px; transition:color .2s; position:relative; }
+  .nav-links a:hover { color:var(--teal); }
+  .nav-links a.active { color:var(--teal); }
+  .nav-links a.active::after {
+    content:''; position:absolute; bottom:-4px; left:0; right:0; height:2px;
+    background:var(--teal); border-radius:2px;
+  }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+  .hamburger span { width:22px; height:2px; background:var(--muted); border-radius:2px; transition:all .3s; }
+  .mobile-menu {
+    display:none; position:fixed; top:60px; left:0; right:0; z-index:99;
+    background:rgba(8,12,20,0.98); border-bottom:1px solid var(--border);
+    padding:20px 5%; flex-direction:column; gap:0;
+  }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a {
+    color:var(--muted); text-decoration:none; font-size:15px; font-weight:500;
+    padding:14px 0; border-bottom:1px solid var(--border); transition:color .2s;
+  }
+  .mobile-menu a:last-child { border-bottom:none; }
+  .mobile-menu a:hover, .mobile-menu a.active { color:var(--teal); }
+  /* Scroll progress bar */
+  #scroll-progress {
+    position:fixed; top:0; left:0; height:2px; z-index:200;
+    background:linear-gradient(90deg, var(--teal), var(--blue));
+    width:0%; transition:width .1s linear;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: auto;
+    display: flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    padding: 100px 8% 56px;
+    position: relative; overflow:hidden;
+  }
+  #hero::before {
+    content:'';
+    position:absolute; top:-200px; right:-100px;
+    width:700px; height:700px;
+    background: radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  #hero::after {
+    content:'';
+    position:absolute; bottom:-150px; left:30%;
+    width:500px; height:500px;
+    background: radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(0,201,167,0.1); border:1px solid rgba(0,201,167,0.25);
+    color:var(--teal); font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+    padding:6px 14px; border-radius:20px; margin-bottom:24px;
+  }
+  .hero-tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+  h1.hero-name {
+    font-family:'Space Grotesk',sans-serif;
+    font-size: clamp(42px,6vw,80px);
+    font-weight:700; line-height:1.05; letter-spacing:-2px;
+    color:#fff; margin-bottom:16px;
+  }
+  h1.hero-name span { color:var(--teal); }
+  .hero-title {
+    font-size: clamp(16px,2vw,22px);
+    color:var(--muted); font-weight:400; margin-bottom:32px; max-width:600px;
+  }
+  .hero-title strong { color:var(--text); font-weight:600; }
+  .hero-stats {
+    display:flex; gap:48px; margin-bottom:40px; flex-wrap:wrap;
+  }
+  .hero-stat-num {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:42px; font-weight:700; color:#fff; line-height:1;
+  }
+  .hero-stat-num span { color:var(--teal); }
+  .hero-stat-label { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+  .hero-cta { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary {
+    padding:12px 28px; background:var(--teal); color:#080c14;
+    font-weight:700; font-size:14px; border-radius:8px; text-decoration:none;
+    transition:all .2s; letter-spacing:.3px;
+  }
+  .btn-primary:hover { background:var(--teal2); transform:translateY(-1px); }
+  .btn-outline {
+    padding:12px 28px; border:1px solid var(--border);
+    color:var(--text); font-weight:600; font-size:14px; border-radius:8px;
+    text-decoration:none; transition:all .2s;
+  }
+  .btn-outline:hover { border-color:var(--teal); color:var(--teal); }
+  .hero-contact {
+    display:flex; gap:24px; margin-top:40px; flex-wrap:wrap;
+  }
+  .hero-contact a {
+    color:var(--muted); text-decoration:none; font-size:13px;
+    display:flex; align-items:center; gap:6px; transition:color .2s;
+  }
+  .hero-contact a:hover { color:var(--teal); }
+
+  /* SECTIONS */
+  section { padding:80px 8%; }
+  .section-label {
+    font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+    color:var(--teal); margin-bottom:12px;
+  }
+  .section-title {
+    font-family:'Space Grotesk',sans-serif;
+    font-size: clamp(28px,4vw,44px);
+    font-weight:700; letter-spacing:-1px; color:#fff; margin-bottom:8px;
+  }
+  .section-sub { color:var(--muted); max-width:600px; margin-bottom:56px; }
+  .divider { height:1px; background:var(--border); margin:0 8%; }
+
+  /* SECTORS */
+  #sectors { background:var(--bg2); }
+  .sectors-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;
+  }
+  .sector-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:24px 20px;
+    transition:all .25s; cursor:default;
+    position:relative; overflow:hidden;
+  }
+  .sector-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--teal),var(--blue));
+    transform:scaleX(0); transform-origin:left; transition:transform .3s;
+  }
+  .sector-card:hover { border-color:var(--teal); transform:translateY(-3px); }
+  .sector-card:hover::before { transform:scaleX(1); }
+  .sector-icon { font-size:28px; margin-bottom:12px; }
+  .sector-name { font-weight:600; font-size:14px; color:#fff; margin-bottom:4px; }
+  .sector-clients { font-size:12px; color:var(--muted); }
+
+  /* TIMELINE */
+  #career { background:var(--bg); }
+  .timeline { position:relative; max-width:900px; }
+  .timeline::before {
+    content:''; position:absolute; left:24px; top:0; bottom:0; width:1px;
+    background:linear-gradient(to bottom, var(--teal), var(--blue), transparent);
+  }
+  .timeline-item { padding-left:70px; margin-bottom:48px; position:relative; }
+  .timeline-dot {
+    position:absolute; left:16px; top:6px;
+    width:17px; height:17px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--teal);
+    box-shadow:0 0 0 4px rgba(0,201,167,0.1);
+  }
+  .timeline-dot.current { background:var(--teal); }
+  .timeline-period {
+    font-size:12px; color:var(--teal); font-weight:600;
+    letter-spacing:.5px; margin-bottom:4px;
+  }
+  .timeline-company {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px; font-weight:700; color:#fff; margin-bottom:2px;
+  }
+  .timeline-role { font-size:14px; color:var(--muted); margin-bottom:10px; }
+  .timeline-location { font-size:12px; color:var(--dim); margin-bottom:12px; display:flex; align-items:center; gap:4px; }
+  .timeline-desc { color:var(--muted); font-size:14px; margin-bottom:12px; }
+  .timeline-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag {
+    background:rgba(0,201,167,0.08); border:1px solid rgba(0,201,167,0.2);
+    color:var(--teal); font-size:11px; font-weight:500;
+    padding:3px 10px; border-radius:20px;
+  }
+  .tag.blue { background:rgba(59,130,246,0.08); border-color:rgba(59,130,246,0.2); color:var(--blue); }
+  .tag.purple { background:rgba(129,140,248,0.08); border-color:rgba(129,140,248,0.2); color:var(--purple); }
+
+  /* PROJECTS */
+  #projects { background:var(--bg2); }
+  .projects-filter { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+  .filter-btn {
+    padding:7px 18px; border-radius:20px; font-size:13px; font-weight:500;
+    border:1px solid var(--border); color:var(--muted); background:transparent;
+    cursor:pointer; transition:all .2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background:rgba(0,201,167,0.1); border-color:var(--teal); color:var(--teal);
+  }
+  .projects-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:20px;
+  }
+  .project-card {
+    background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:28px; transition:all .25s; position:relative; overflow:hidden;
+  }
+  .project-card.featured { border-color:rgba(0,201,167,0.3); }
+  .project-card.featured::after {
+    content:'FEATURED'; position:absolute; top:16px; right:16px;
+    font-size:9px; font-weight:700; letter-spacing:1.5px;
+    color:var(--teal); background:rgba(0,201,167,0.1); padding:3px 8px; border-radius:10px;
+  }
+  .project-card:hover { border-color:var(--teal); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+  .project-sector-badge {
+    display:inline-block; font-size:11px; font-weight:600;
+    letter-spacing:.5px; padding:3px 10px; border-radius:20px; margin-bottom:14px;
+  }
+  .project-client { font-size:12px; color:var(--muted); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .project-name {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; line-height:1.3;
+  }
+  .project-desc { font-size:13px; color:var(--muted); margin-bottom:16px; line-height:1.6; }
+  .project-period { font-size:11px; color:var(--dim); margin-bottom:14px; }
+  .project-tech { display:flex; flex-wrap:wrap; gap:5px; }
+  .tech-badge {
+    background:var(--bg3); border:1px solid var(--border);
+    color:var(--dim); font-size:11px; padding:2px 8px; border-radius:4px;
+  }
+
+  /* SKILLS */
+  #skills { background:var(--bg); }
+  .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:28px; }
+  .skill-group { }
+  .skill-group-title {
+    font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--teal); margin-bottom:16px; padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+  }
+  .skill-items { display:flex; flex-wrap:wrap; gap:8px; }
+  .skill-badge {
+    background:var(--card); border:1px solid var(--border);
+    color:var(--text); font-size:13px; font-weight:500;
+    padding:6px 14px; border-radius:8px; transition:all .2s;
+  }
+  .skill-badge:hover { border-color:var(--teal); color:var(--teal); }
+  .skill-badge.primary { border-color:rgba(0,201,167,0.3); background:rgba(0,201,167,0.06); color:var(--teal); }
+
+  /* ACHIEVEMENTS */
+  #achievements { background:var(--bg2); }
+  .achievements-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+  .achievement-card {
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:28px 24px; text-align:center; transition:all .25s;
+  }
+  .achievement-card:hover { border-color:var(--teal); }
+  .achievement-num {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:48px; font-weight:700; color:var(--teal); line-height:1; margin-bottom:4px;
+  }
+  .achievement-label { font-size:14px; color:var(--muted); }
+
+  /* EDUCATION & CERTS */
+  #education { background:var(--bg); }
+  .edu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+  .edu-card {
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
+    padding:24px; transition:all .25s;
+  }
+  .edu-card:hover { border-color:var(--teal); }
+  .edu-type { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
+  .edu-degree { font-size:16px; font-weight:700; color:#fff; margin-bottom:4px; }
+  .edu-institution { font-size:13px; color:var(--muted); }
+
+  /* CONTACT / FOOTER */
+  #contact {
+    background:var(--bg2);
+    text-align:center; padding:80px 8%;
+    border-top:1px solid var(--border);
+  }
+  .contact-title {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(28px,4vw,42px); font-weight:700; color:#fff; margin-bottom:12px;
+  }
+  .contact-sub { color:var(--muted); margin-bottom:36px; }
+  .contact-links { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+  .contact-link {
+    display:flex; align-items:center; gap:8px;
+    padding:12px 24px; border:1px solid var(--border); border-radius:10px;
+    color:var(--text); text-decoration:none; font-size:14px; font-weight:500;
+    transition:all .2s;
+  }
+  .contact-link:hover { border-color:var(--teal); color:var(--teal); }
+  footer {
+    background:var(--bg); padding:20px 8%;
+    text-align:center; font-size:12px; color:var(--dim);
+    border-top:1px solid var(--border);
+  }
+
+  /* FADE-IN ANIMATIONS */
+  .fade-in { opacity:0; transform:translateY(28px); transition:opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  /* RESPONSIVE */
+  @media(max-width:700px){
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    #hero { padding:100px 6% 60px; }
+    section { padding:60px 6%; }
+    .divider { margin:0 6%; }
+    .hero-stats { gap:28px; }
+    .projects-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="scroll-progress"></div>
+
+<nav>
+
+  <ul class="nav-links">
+    <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Impact</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#sectors">Sectors</a>
+  <a href="#career">Career</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#achievements">Impact</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Open to opportunities</div>
+  <h1 class="hero-name">Harikrishna Muppa</h1>
+  <p class="hero-title">
+    <strong>Senior Data Visualization &amp; Experience Manager</strong><br>
+    BI Architect &nbsp;·&nbsp; AI/Agentic Automation Engineer &nbsp;·&nbsp; Tableau &amp; Power BI Leader
+  </p>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">20<span>+</span></div>
+      <div class="hero-stat-label">Years in BI &amp; Analytics</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Industry Sectors</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">25<span>+</span></div>
+      <div class="hero-stat-label">Enterprise Clients</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">100<span>+</span></div>
+      <div class="hero-stat-label">Dashboards Delivered</div>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-contact">
+    <a href="mailto:hari.muppa@gmail.com">✉ hari.muppa@gmail.com</a>
+    <a href="tel:+18324691660">📱 +1 832-469-1660</a>
+    <a>📍 Portland (Beaverton), OR</a>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" style="padding:48px 8%;">
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-num">70%</div>
+      <div class="achievement-label">Reduction in manual documentation effort via AI automation at Nike</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">20+</div>
+      <div class="achievement-label">Dashboards built for Nike AIR MI manufacturing division</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">13</div>
+      <div class="achievement-label">Quality dashboards delivered for Dr. Reddy's Labs across 5 KPA areas</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">$M+</div>
+      <div class="achievement-label">Supply chain decisions enabled by Nike executive dashboards</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">25+</div>
+      <div class="achievement-label">Enterprise clients across 6 countries and 3 continents</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">100+</div>
+      <div class="achievement-label">Dashboards and reports delivered across career</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">8</div>
+      <div class="achievement-label">Industry sectors served with bespoke analytics solutions</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">3</div>
+      <div class="achievement-label">Professional certifications (SAP BO, Deep Learning, Google Figma)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTORS -->
+<section id="sectors">
+  <div class="section-label">Industries</div>
+  <div class="section-title">8 Sectors. 25+ Clients.</div>
+  <p class="section-sub">20 years of enterprise BI delivery across industries that demand precision, trust, and scale.</p>
+  <div class="sectors-grid">
+    <div class="sector-card">
+      <div class="sector-icon">👟</div>
+      <div class="sector-name">Athletic Retail &amp; Manufacturing</div>
+      <div class="sector-clients">Nike — 7 years</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">📡</div>
+      <div class="sector-name">Telecommunications</div>
+      <div class="sector-clients">Sprint, AT&amp;T / Bellsouth</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">⚡</div>
+      <div class="sector-name">Energy &amp; Utilities</div>
+      <div class="sector-clients">TS Genco, AP Genco</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">💊</div>
+      <div class="sector-name">Healthcare &amp; Pharma</div>
+      <div class="sector-clients">Dr. Reddy's Labs, Telligen</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🥤</div>
+      <div class="sector-name">Food &amp; Beverage</div>
+      <div class="sector-clients">Tate &amp; Lyle, Coca-Cola, Florida Crystals</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🏦</div>
+      <div class="sector-name">Financial Services</div>
+      <div class="sector-clients">Ditech Home Loans, Morgan Stanley</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">💻</div>
+      <div class="sector-name">Technology &amp; IT</div>
+      <div class="sector-clients">HP, Capgemini</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon">🏛️</div>
+      <div class="sector-name">Government &amp; Defense</div>
+      <div class="sector-clients">RCI (Research Centre Imarat), AP CM Office</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAREER TIMELINE -->
+<section id="career">
+  <div class="section-label">Career Journey</div>
+  <div class="section-title">20 Years of Growth</div>
+  <p class="section-sub">From BI developer to visualization leader — across consulting giants, startups, and a global athletic brand.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot current"></div>
+      <div class="timeline-period">Sep 2022 – Present (Direct Hire)</div>
+      <div class="timeline-company">Nike, Inc.</div>
+      <div class="timeline-role">Senior Visualization Developer — Supply Chain Planning Technology</div>
+      <div class="timeline-location">📍 Beaverton, Oregon</div>
+      <div class="timeline-desc">Lead enterprise dashboarding and AI-powered automation initiatives for Nike's Marketplace DP&amp;R, DSM, and SCPT squads. Dashboards used in multimillion-dollar supply chain decisions and accessible to Nike's top-level management.</div>
+      <div class="timeline-tags">
+        <span class="tag">Tableau 2024.3</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Cursor AI</span>
+        <span class="tag blue">Supply Chain</span>
+        <span class="tag blue">AI/Agentic</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Oct 2020 – Sep 2022</div>
+      <div class="timeline-company">Devfi Inc. (formerly Telligen Tech)</div>
+      <div class="timeline-role">BI Developer — embedded at Nike AIR MI</div>
+      <div class="timeline-location">📍 Columbus, Ohio</div>
+      <div class="timeline-desc">Continued building Nike's AIR MI analytics platform, delivering dashboards for machine performance, HR, and inventory. Managed Tableau Server and Power BI workspace governance.</div>
+      <div class="timeline-tags">
+        <span class="tag">Tableau</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">SQL</span>
+        <span class="tag blue">Manufacturing</span>
+        <span class="tag blue">Healthcare Data</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Oct 2018 – Oct 2020</div>
+      <div class="timeline-company">Scottline LLC</div>
+      <div class="timeline-role">Senior Tableau Developer</div>
+      <div class="timeline-location">📍 Houston, Texas</div>
+      <div class="timeline-desc">Delivered Tableau dashboards for Nike AIR MI and Ditech Home Loans. Built pixel-perfect executive dashboards, complex blended data models, and collapsible filter UX patterns.</div>
+      <div class="timeline-tags">
+        <span class="tag">Tableau</span>
+        <span class="tag blue">Athletic Retail</span>
+        <span class="tag blue">Financial Services</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jan 2013 – Jun 2018</div>
+      <div class="timeline-company">OTSI</div>
+      <div class="timeline-role">Team Lead — BI &amp; Visualization</div>
+      <div class="timeline-location">📍 Hyderabad, India</div>
+      <div class="timeline-desc">Led delivery across four major client engagements: Sprint Telecom (network analytics), HP (automation insights), Research Centre Imarat (SAP modules), and TS/AP Genco (government power sector dashboards used by the Chief Minister of Andhra Pradesh).</div>
+      <div class="timeline-tags">
+        <span class="tag">Tableau 8–9</span>
+        <span class="tag">Vertica</span>
+        <span class="tag">Oracle</span>
+        <span class="tag blue">Telecom</span>
+        <span class="tag blue">Energy</span>
+        <span class="tag blue">Government</span>
+        <span class="tag blue">IT/Tech</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Jan 2007 – Jan 2013</div>
+      <div class="timeline-company">Capgemini Consulting India</div>
+      <div class="timeline-role">Consultant — BI &amp; Analytics</div>
+      <div class="timeline-location">📍 Mumbai, India</div>
+      <div class="timeline-desc">Served global clients across food &amp; beverage, pharma, and telecom. Designed SAP BO universes, Xcelsius dashboards, and WebI reports. Clients included Tate &amp; Lyle, Coca-Cola, Florida Crystals, Dr. Reddy's Labs, and AT&amp;T.</div>
+      <div class="timeline-tags">
+        <span class="tag">SAP Business Objects</span>
+        <span class="tag">Xcelsius</span>
+        <span class="tag">SAP BEX</span>
+        <span class="tag blue">FMCG</span>
+        <span class="tag blue">Pharma</span>
+        <span class="tag blue">Telecom</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Dec 2005 – Dec 2006</div>
+      <div class="timeline-company">Wipro Technologies</div>
+      <div class="timeline-role">Senior Software Engineer</div>
+      <div class="timeline-location">📍 Pune, India</div>
+      <div class="timeline-desc">Developed BI reports and dashboards for Morgan Stanley (Sybase), P&amp;G (Oracle), and SABRE Inc. Built reporting solutions in Business Objects 5/6.5 and Crystal Reports.</div>
+      <div class="timeline-tags">
+        <span class="tag">Business Objects 6.5</span>
+        <span class="tag">Crystal Reports</span>
+        <span class="tag">Oracle</span>
+        <span class="tag blue">Financial Services</span>
+        <span class="tag blue">CPG</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected Projects</div>
+  <div class="section-title">Flagship Deliveries</div>
+  <p class="section-sub">A curated view of enterprise analytics projects spanning AI automation, supply chain, network, energy, pharma, and more.</p>
+
+  <div class="projects-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="ai">AI / Agentic</button>
+    <button class="filter-btn" data-filter="retail">Athletic Retail</button>
+    <button class="filter-btn" data-filter="telecom">Telecom</button>
+    <button class="filter-btn" data-filter="energy">Energy</button>
+    <button class="filter-btn" data-filter="pharma">Pharma</button>
+    <button class="filter-btn" data-filter="fnb">Food &amp; Beverage</button>
+    <button class="filter-btn" data-filter="finance">Financial</button>
+    <button class="filter-btn" data-filter="tech">Technology</button>
+    <button class="filter-btn" data-filter="govt">Government</button>
+  </div>
+
+  <div class="projects-grid" id="projects-grid">
+
+    <!-- Nike: AI Doc Generator -->
+    <div class="project-card featured" data-sector="ai">
+      <span class="project-sector-badge" style="background:rgba(0,201,167,0.1);color:#00c9a7;border:1px solid rgba(0,201,167,0.25);">AI / Agentic</span>
+      <div class="project-client">📍 Nike, Beaverton OR &nbsp;·&nbsp; Feb–Mar 2026</div>
+      <div class="project-name">Tableau Automatic Documentation Generator</div>
+      <div class="project-desc">Architected an end-to-end AI documentation pipeline using Cursor AI and Databricks LLM. Users provide Tableau Server PAT credentials; the system auto-generates context-aware technical docs for hundreds of dashboards — cutting manual effort by 70% and delivering via a Streamlit UI deployed on Databricks.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Cursor AI</span>
+        <span class="tech-badge">Databricks LLM</span>
+        <span class="tech-badge">Streamlit</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">REST API</span>
+        <span class="tech-badge">RAG</span>
+      </div>
+    </div>
+
+    <!-- Nike Marketplace DSM/SCPT -->
+    <div class="project-card featured" data-sector="retail">
+      <span class="project-sector-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;border:1px solid rgba(59,130,246,0.25);">Athletic Retail</span>
+      <div class="project-client">📍 Nike, Beaverton OR &nbsp;·&nbsp; Sep 2022 – Present</div>
+      <div class="project-name">Nike Marketplace DP&amp;R — DSM &amp; SCPT</div>
+      <div class="project-desc">Built IHE (Inventory Health Evaluation) dashboards — providing actuals and projections on inventory, sales, and shipments across the marketplace. Developed SBR vs. Target dashboard using O9 data for 6-season rolling forecasts, directly supporting supply chain planner decision-making. Dashboards accessible to Nike's top-level management.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau 2024.3</span>
+        <span class="tech-badge">Power BI</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">Databricks</span>
+        <span class="tech-badge">DAX</span>
+        <span class="tech-badge">LOD Expressions</span>
+      </div>
+    </div>
+
+    <!-- Nike AIR MI -->
+    <div class="project-card featured" data-sector="retail">
+      <span class="project-sector-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;border:1px solid rgba(59,130,246,0.25);">Manufacturing</span>
+      <div class="project-client">📍 Nike AIR MI, Beaverton OR &nbsp;·&nbsp; Feb 2019 – Sep 2022</div>
+      <div class="project-name">AIR MI Analytics Platform</div>
+      <div class="project-desc">Built 20+ dashboards for Nike's Air Manufacturing Innovation division — covering machine performance metrics, machine utilization, downtime, scrap analytics, inventory, payroll, and Learning &amp; Development. AIR MI holds 500+ utility patents for Nike Air technologies.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau</span>
+        <span class="tech-badge">Power BI</span>
+        <span class="tech-badge">Custom SQL</span>
+        <span class="tech-badge">Forecasting</span>
+        <span class="tech-badge">LOD</span>
+      </div>
+    </div>
+
+    <!-- Sprint -->
+    <div class="project-card" data-sector="telecom">
+      <span class="project-sector-badge" style="background:rgba(129,140,248,0.1);color:#818cf8;border:1px solid rgba(129,140,248,0.25);">Telecommunications</span>
+      <div class="project-client">📍 Sprint Telecom, Houston TX &nbsp;·&nbsp; Mar 2017 – Oct 2018</div>
+      <div class="project-name">Network Analysis Dashboards</div>
+      <div class="project-desc">5 dashboards analyzing network frequency KPIs across 4 vendors (Lucent, Motorola, Nortel, Samsung). Tracked call drop %, connection failure %, and extended connection failure % for comprehensive network health monitoring.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau</span>
+        <span class="tech-badge">DOMO</span>
+        <span class="tech-badge">Multi-source Blending</span>
+        <span class="tech-badge">Table Calcs</span>
+      </div>
+    </div>
+
+    <!-- HP -->
+    <div class="project-card" data-sector="tech">
+      <span class="project-sector-badge" style="background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);">Technology</span>
+      <div class="project-client">📍 HP (HPSA), India &nbsp;·&nbsp; Oct 2015 – Mar 2017</div>
+      <div class="project-name">HPSA Automation Insights (AI)</div>
+      <div class="project-desc">Delivered dashboards for inventory, audit compliance, and patch compliance KPIs within HP's Server Automation product. Multiple solution packs shipped to enterprise customers with packaged dashboards, web reports, and Tableau projects.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau 9.4</span>
+        <span class="tech-badge">Vertica</span>
+        <span class="tech-badge">SAP HANA</span>
+        <span class="tech-badge">BODS</span>
+        <span class="tech-badge">SLT</span>
+      </div>
+    </div>
+
+    <!-- RCI -->
+    <div class="project-card" data-sector="govt">
+      <span class="project-sector-badge" style="background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.25);">Government / Defense</span>
+      <div class="project-client">📍 Research Centre Imarat, Hyderabad &nbsp;·&nbsp; Jan 2014 – Oct 2015</div>
+      <div class="project-name">RCI BI Implementation</div>
+      <div class="project-desc">Full BI implementation for India's premier missile research facility — covering SAP MM, Finance, and HR modules. Delivered dashboards and web reports across employee, project, time, and location dimensions.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau 9.4</span>
+        <span class="tech-badge">Oracle 11</span>
+        <span class="tech-badge">SAP MM/FICO/HR</span>
+        <span class="tech-badge">Tabadmin</span>
+      </div>
+    </div>
+
+    <!-- AP & TS Genco -->
+    <div class="project-card" data-sector="energy">
+      <span class="project-sector-badge" style="background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.25);">Energy / Government</span>
+      <div class="project-client">📍 AP Genco / TS Genco &nbsp;·&nbsp; Jan 2013 – Dec 2015</div>
+      <div class="project-name">State Power Executive Dashboards</div>
+      <div class="project-desc">Dashboards for the Chief Minister of Andhra Pradesh enabling real-time visibility into statewide power utilization — agriculture, industrial, and total. Also delivered dashboards for Telangana State power generation corp across thermal plants, finance, and HR.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau 8/9</span>
+        <span class="tech-badge">Oracle 11</span>
+        <span class="tech-badge">SQL Server 2008 R2</span>
+      </div>
+    </div>
+
+    <!-- DR Reddy's -->
+    <div class="project-card" data-sector="pharma">
+      <span class="project-sector-badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.25);">Pharma</span>
+      <div class="project-client">📍 Dr. Reddy's Laboratories &nbsp;·&nbsp; Aug 2012 – Jan 2013</div>
+      <div class="project-name">DRL Quality Analytics Dashboards</div>
+      <div class="project-desc">13 dashboards across 5 Quality KPA areas (market complaints, OOS, incidents, change control, CAPA) each tracking 20 KPIs. Enabled data-driven quality decisions across plants, markets, and root-cause categories.</div>
+      <div class="project-tech">
+        <span class="tech-badge">BO XI 4.0</span>
+        <span class="tech-badge">SAP BEX</span>
+        <span class="tech-badge">Xcelsius</span>
+        <span class="tech-badge">WebI</span>
+      </div>
+    </div>
+
+    <!-- Tate & Lyle -->
+    <div class="project-card" data-sector="fnb">
+      <span class="project-sector-badge" style="background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);">Food &amp; Beverage</span>
+      <div class="project-client">📍 Tate &amp; Lyle &nbsp;·&nbsp; Dec 2011 – Jul 2012</div>
+      <div class="project-name">S&amp;OP &amp; Supply Chain Dashboards</div>
+      <div class="project-desc">Suite of dashboards supporting Sales &amp; Operations Planning — including Business Performance Snapshot, Regional S&amp;OP Supply/Demand, and Supply Chain decision dashboards. Tracked inventory KPIs like Days Forward Coverage across BU, performance unit, and platform.</div>
+      <div class="project-tech">
+        <span class="tech-badge">BO XI 3.1</span>
+        <span class="tech-badge">SAP BEX</span>
+        <span class="tech-badge">Xcelsius</span>
+        <span class="tech-badge">WebI</span>
+        <span class="tech-badge">SAP Universe</span>
+      </div>
+    </div>
+
+    <!-- Ditech -->
+    <div class="project-card" data-sector="finance">
+      <span class="project-sector-badge" style="background:rgba(99,102,241,0.1);color:#6366f1;border:1px solid rgba(99,102,241,0.25);">Financial Services</span>
+      <div class="project-client">📍 Ditech Home Loans, Fort Washington PA &nbsp;·&nbsp; Oct 2018 – Feb 2019</div>
+      <div class="project-name">Home Loan Analysis Dashboards</div>
+      <div class="project-desc">20+ metric dashboards across consumer, correspondent, and wholesale loan modules. Pixel-perfect layouts with collapsible filter menus, blended multi-source data, and global date parameters for weekly rolling comparisons.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau</span>
+        <span class="tech-badge">Custom SQL</span>
+        <span class="tech-badge">Data Blending</span>
+        <span class="tech-badge">Container Techniques</span>
+      </div>
+    </div>
+
+    <!-- Coca-Cola -->
+    <div class="project-card" data-sector="fnb">
+      <span class="project-sector-badge" style="background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);">Food &amp; Beverage</span>
+      <div class="project-client">📍 The Coca-Cola Company &nbsp;·&nbsp; Feb–Nov 2010</div>
+      <div class="project-name">Global Quality Metrics &amp; KOMOST</div>
+      <div class="project-desc">Migrated Coca-Cola's COGNOS quality reporting to Business Objects XI. Also delivered KOMOST/IKOMOST dashboards for McDonald's Division QMP — enabling consolidated reporting for quality maintenance programs across North America and International markets.</div>
+      <div class="project-tech">
+        <span class="tech-badge">BO XI 3.1</span>
+        <span class="tech-badge">WebI</span>
+        <span class="tech-badge">Universe Design</span>
+        <span class="tech-badge">Row-Level Security</span>
+      </div>
+    </div>
+
+    <!-- Florida Crystals -->
+    <div class="project-card" data-sector="fnb">
+      <span class="project-sector-badge" style="background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.25);">Food &amp; Beverage</span>
+      <div class="project-client">📍 Florida Crystals Company &nbsp;·&nbsp; Nov 2009 – Sep 2011</div>
+      <div class="project-name">Sales ERS &amp; Refinery Metrics Dashboards</div>
+      <div class="project-desc">6-tab Sales ERS dashboard (Trends, Orders, MTD, YTD) for the leading US cane sugar producer. Also built refinery performance metrics dashboards tracking energy, melt, boiler, steam, and labor efficiency across facilities.</div>
+      <div class="project-tech">
+        <span class="tech-badge">BO XI 3.1</span>
+        <span class="tech-badge">SAP BEX</span>
+        <span class="tech-badge">Xcelsius</span>
+        <span class="tech-badge">Live Office</span>
+      </div>
+    </div>
+
+    <!-- Morgan Stanley -->
+    <div class="project-card" data-sector="finance">
+      <span class="project-sector-badge" style="background:rgba(99,102,241,0.1);color:#6366f1;border:1px solid rgba(99,102,241,0.25);">Financial Services</span>
+      <div class="project-client">📍 Morgan Stanley, USA &nbsp;·&nbsp; Jan 2006 – Jan 2007</div>
+      <div class="project-name">MS-KM Publish Reporting</div>
+      <div class="project-desc">Knowledge Management publish reporting system for Morgan Stanley built on Business Objects 6.5 and Sybase 12, handling large-scale financial report publishing workflows.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Business Objects 6.5</span>
+        <span class="tech-badge">Sybase 12</span>
+        <span class="tech-badge">Crystal Reports</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+  <div class="section-title">Full-Stack BI Toolkit</div>
+  <p class="section-sub">From data modeling and SQL to AI-powered automation and enterprise visualization platforms.</p>
+
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <div class="skill-group-title">Visualization &amp; BI Platforms</div>
+      <div class="skill-items">
+        <span class="skill-badge primary">Tableau (8 → 2024.3)</span>
+        <span class="skill-badge primary">Tableau Pulse</span>
+        <span class="skill-badge primary">Power BI</span>
+        <span class="skill-badge">SAP Business Objects</span>
+        <span class="skill-badge">Xcelsius</span>
+        <span class="skill-badge">Crystal Reports</span>
+        <span class="skill-badge">DOMO</span>
+        <span class="skill-badge">Streamlit</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Databases &amp; Cloud Data</div>
+      <div class="skill-items">
+        <span class="skill-badge primary">Snowflake</span>
+        <span class="skill-badge primary">Databricks</span>
+        <span class="skill-badge">SQL Server 2008–2014</span>
+        <span class="skill-badge">Oracle 9i / 10g</span>
+        <span class="skill-badge">Vertica</span>
+        <span class="skill-badge">Sybase 12</span>
+        <span class="skill-badge">MySQL</span>
+        <span class="skill-badge">SAP BEX</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">AI &amp; Agentic Tools</div>
+      <div class="skill-items">
+        <span class="skill-badge primary">Cursor AI (Agentic Mode)</span>
+        <span class="skill-badge primary">Databricks LLM</span>
+        <span class="skill-badge">RAG Pipelines</span>
+        <span class="skill-badge">Prompt Engineering</span>
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">Deep Learning</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Data Modeling &amp; Architecture</div>
+      <div class="skill-items">
+        <span class="skill-badge primary">Star / Snowflake Schema</span>
+        <span class="skill-badge">Fact &amp; Dimension Design</span>
+        <span class="skill-badge">Universe Design (SAP BO)</span>
+        <span class="skill-badge">LOD Expressions</span>
+        <span class="skill-badge">DAX</span>
+        <span class="skill-badge">Semantic Layer</span>
+        <span class="skill-badge">KPI Taxonomy</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Tableau Advanced Features</div>
+      <div class="skill-items">
+        <span class="skill-badge">Parameter Actions</span>
+        <span class="skill-badge">Dynamic Zone Visibility</span>
+        <span class="skill-badge">LOD Calculations</span>
+        <span class="skill-badge">Forecasting</span>
+        <span class="skill-badge">Data Blending</span>
+        <span class="skill-badge">Table Calculations</span>
+        <span class="skill-badge">SSO / SAML</span>
+        <span class="skill-badge">Tabadmin / Tabcmd</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Process &amp; Delivery</div>
+      <div class="skill-items">
+        <span class="skill-badge">Agile / Scrum</span>
+        <span class="skill-badge">Jira</span>
+        <span class="skill-badge">SAP HR / MM / FICO</span>
+        <span class="skill-badge">Row-Level Security</span>
+        <span class="skill-badge">UAT Coordination</span>
+        <span class="skill-badge">Team Leadership</span>
+        <span class="skill-badge">Stakeholder Training</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Power BI Advanced Features</div>
+      <div class="skill-items">
+        <span class="skill-badge">DAX Measures</span>
+        <span class="skill-badge">RLS</span>
+        <span class="skill-badge">Incremental Refresh</span>
+        <span class="skill-badge">Composite Models</span>
+        <span class="skill-badge">Performance Tuning</span>
+        <span class="skill-badge">Power BI Service Admin</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Infrastructure &amp; Platform Ops</div>
+      <div class="skill-items">
+        <span class="skill-badge">Tableau Server / Cloud</span>
+        <span class="skill-badge">Power BI Service</span>
+        <span class="skill-badge">Windows Server</span>
+        <span class="skill-badge">Linux / Unix</span>
+        <span class="skill-badge">Shell Scripting</span>
+        <span class="skill-badge">SSO Configuration</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education &amp; Certifications</div>
+  <div class="section-title">Credentials</div>
+  <p class="section-sub">Academic foundation in technology and science, complemented by industry certifications.</p>
+
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-type">Masters Degree</div>
+      <div class="edu-degree">M.S. Information Technology</div>
+      <div class="edu-institution">Bharathidasan University</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-type">Bachelor's Degree</div>
+      <div class="edu-degree">B.Sc. Mathematics, Physics &amp; Chemistry</div>
+      <div class="edu-institution">India</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-type">Industry Certification</div>
+      <div class="edu-degree">SAP Business Objects — Level 1</div>
+      <div class="edu-institution">SAP Certified Professional</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-type">Technical Certification</div>
+      <div class="edu-degree">Deep Learning Certification</div>
+      <div class="edu-institution">AI &amp; Machine Learning</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-type">Design Certification</div>
+      <div class="edu-degree">Google Figma Certification</div>
+      <div class="edu-institution">UX / Data Visualization Design</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-title">Let's Connect</div>
+  <p class="contact-sub">Open to senior BI, data visualization, and AI/agentic automation roles. Based in Portland, OR — open to remote.</p>
+  <div class="contact-links">
+    <a href="mailto:hari.muppa@gmail.com" class="contact-link">✉ hari.muppa@gmail.com</a>
+    <a href="tel:+18324691660" class="contact-link">📱 +1 832-469-1660</a>
+    <a class="contact-link">📍 Beaverton / Portland, Oregon</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Harikrishna Muppa &nbsp;·&nbsp; Senior Data Visualization &amp; Experience Manager &nbsp;·&nbsp; Portland, OR
+</footer>
+
+<script>
+  // Scroll progress bar
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const total = document.body.scrollHeight - window.innerHeight;
+    progressBar.style.width = (window.scrollY / total * 100) + '%';
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        // close mobile menu if open
+        document.getElementById('mobile-menu').classList.remove('open');
+      }
+    });
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        document.querySelectorAll(`a[href="#${entry.target.id}"]`)
+          .forEach(a => a.classList.add('active'));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Mobile hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Project filtering
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const show = filter === 'all' || card.dataset.sector === filter;
+        card.style.display = show ? '' : 'none';
+        if (show) card.style.animation = 'fadeIn .35s ease';
+      });
+    });
+  });
+
+  // Scroll-in fade animations
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(
+    '.project-card, .sector-card, .timeline-item, .skill-group, .achievement-card, .edu-card'
+  ).forEach((el, i) => {
+    el.classList.add('fade-in');
+    el.style.transitionDelay = (i % 4 * 80) + 'ms';
+    fadeObserver.observe(el);
+  });
+</script>
+
+</body>
+</html>
