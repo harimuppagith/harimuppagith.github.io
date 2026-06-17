@@ -3,33 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio of Harikrishna Muppa — Senior Data Visualization & Experience Manager with 20+ years in BI, Tableau, Power BI, and AI/Agentic automation. Based in Portland, OR.">
-<meta property="og:title" content="Harikrishna Muppa — BI Architect & Data Visualization Leader">
-<meta property="og:description" content="20+ years of enterprise BI delivery across 8 industries and 25+ clients. Expert in Tableau, Power BI, Snowflake, Databricks, and AI-powered analytics.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://harimuppagith.github.io/">
-<title>Hari Muppa — BI Architect & Data Visualization Leader</title>
+<title>Hari Muppa — BI Architect · Analytics Product Owner · Applied AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f8fafc;
-    --bg2: #f1f5f9;
-    --bg3: #e8edf5;
-    --card: #ffffff;
-    --card-solid: #ffffff;
-    --border: rgba(0,0,0,0.08);
-    --border-bright: rgba(249,115,22,0.35);
-    --teal: #f97316;
-    --teal2: #fb923c;
-    --blue: #f59e0b;
-    --purple: #ef4444;
-    --pink: #ec4899;
-    --gold: #d97706;
-    --text: #1c0a00;
-    --muted: #78350f;
-    --dim: #c2855a;
-    --grad: linear-gradient(135deg, #f97316, #f59e0b);
-    --grad2: linear-gradient(135deg, #f59e0b, #ef4444);
+    --bg: #05080f;
+    --bg2: #080d18;
+    --bg3: #0d1525;
+    --card: rgba(255,255,255,0.04);
+    --card-solid: #0d1525;
+    --border: rgba(255,255,255,0.08);
+    --border-bright: rgba(0,212,170,0.35);
+    --teal: #00d4aa;
+    --teal2: #00f5c4;
+    --blue: #4f9cf9;
+    --purple: #a78bfa;
+    --pink: #f472b6;
+    --gold: #fbbf24;
+    --text: #f0f6ff;
+    --muted: #7a8fa6;
+    --dim: #3d5068;
+    --grad: linear-gradient(135deg, #00d4aa, #4f9cf9);
+    --grad2: linear-gradient(135deg, #4f9cf9, #a78bfa);
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -42,9 +37,11 @@
     font-size: 15px;
     line-height: 1.65;
     background-image:
-      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(249,115,22,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245,158,11,0.06) 0%, transparent 60%);
-    background-size: 100% 100%, 100% 100%;
+      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(79,156,249,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(167,139,250,0.06) 0%, transparent 60%),
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
     background-attachment: fixed;
   }
 
@@ -53,13 +50,13 @@
     position:fixed; top:0; left:0; height:3px; z-index:200;
     background: linear-gradient(90deg, var(--teal), var(--blue), var(--purple));
     width:0%; transition:width .1s linear;
-    box-shadow: 0 0 8px rgba(249,115,22,0.6);
+    box-shadow: 0 0 8px rgba(0,212,170,0.6);
   }
 
   /* NAV */
   nav {
     position:fixed; top:0; left:0; right:0; z-index:100;
-    background: rgba(248,250,252,0.92);
+    background: rgba(5,8,15,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     padding: 0 5%;
@@ -76,13 +73,13 @@
   .nav-links a.active::after {
     content:''; position:absolute; bottom:-4px; left:0; right:0; height:2px;
     background: var(--grad); border-radius:2px;
-    box-shadow: 0 0 6px rgba(249,115,22,0.5);
+    box-shadow: 0 0 6px rgba(0,212,170,0.5);
   }
   .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
   .hamburger span { width:22px; height:2px; background:var(--muted); border-radius:2px; transition:all .3s; }
   .mobile-menu {
     display:none; position:fixed; top:60px; left:0; right:0; z-index:99;
-    background:rgba(248,250,252,0.99); backdrop-filter:blur(20px);
+    background:rgba(5,8,15,0.98); backdrop-filter:blur(20px);
     border-bottom:1px solid var(--border);
     padding:20px 5%; flex-direction:column; gap:0;
   }
@@ -96,7 +93,9 @@
 
   /* HERO */
   #hero {
-    padding: 68px 8% 16px;
+    min-height: auto;
+    display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    padding: 100px 8% 56px;
     position:relative; overflow:hidden;
   }
   .hero-orb {
@@ -104,17 +103,17 @@
   }
   .hero-orb-1 {
     width:600px; height:600px; top:-200px; right:-100px;
-    background: radial-gradient(circle, rgba(100,100,110,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0,212,170,0.12) 0%, transparent 70%);
     animation: floatOrb 8s ease-in-out infinite;
   }
   .hero-orb-2 {
     width:500px; height:500px; bottom:-150px; left:20%;
-    background: radial-gradient(circle, rgba(150,150,160,0.09) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79,156,249,0.10) 0%, transparent 70%);
     animation: floatOrb 10s ease-in-out infinite reverse;
   }
   .hero-orb-3 {
     width:350px; height:350px; top:30%; right:20%;
-    background: radial-gradient(circle, rgba(80,80,90,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);
     animation: floatOrb 12s ease-in-out infinite 2s;
   }
   @keyframes floatOrb {
@@ -124,40 +123,40 @@
   }
   .hero-tag {
     display:inline-flex; align-items:center; gap:8px;
-    background: rgba(0,0,0,0.04);
-    border:1px solid rgba(0,0,0,0.12);
-    color:#555; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    background: rgba(0,212,170,0.08);
+    border:1px solid rgba(0,212,170,0.3);
+    color:var(--teal); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
     padding:7px 16px; border-radius:20px; margin-bottom:28px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    box-shadow: 0 0 20px rgba(0,212,170,0.1);
   }
   .hero-tag::before {
     content:''; width:6px; height:6px; border-radius:50%;
-    background:#888; animation:pulse 2s infinite;
-    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    background:var(--teal); animation:pulse 2s infinite;
+    box-shadow: 0 0 6px var(--teal);
   }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(0.8)} }
 
   h1.hero-name {
     font-family:'Space Grotesk',sans-serif;
-    font-size: clamp(36px,5vw,64px);
-    font-weight:800; line-height:1.0; letter-spacing:-2px;
-    background: linear-gradient(135deg, #111827 0%, #374151 55%, #6b7280 100%);
+    font-size: clamp(44px,6.5vw,84px);
+    font-weight:800; line-height:1.0; letter-spacing:-3px;
+    background: linear-gradient(135deg, #ffffff 0%, #c7e8ff 40%, var(--teal) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom:12px;
+    margin-bottom:18px;
   }
   .hero-title {
-    font-size: clamp(13px,1.5vw,17px);
-    color:var(--muted); font-weight:400; margin-bottom:22px; max-width:580px;
-    line-height:1.65;
+    font-size: clamp(15px,1.8vw,20px);
+    color:var(--muted); font-weight:400; margin-bottom:36px; max-width:620px;
+    line-height:1.7;
   }
   .hero-title strong { color:var(--text); font-weight:600; }
 
-  .hero-stats { display:flex; gap:32px; margin-bottom:24px; flex-wrap:wrap; }
+  .hero-stats { display:flex; gap:48px; margin-bottom:40px; flex-wrap:wrap; }
   .hero-stat-num {
     font-family:'Space Grotesk',sans-serif;
-    font-size:34px; font-weight:800; line-height:1;
-    background: linear-gradient(135deg, #1f2937, #6b7280);
+    font-size:44px; font-weight:800; line-height:1;
+    background: var(--grad);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
   }
@@ -166,12 +165,12 @@
   .hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
   .btn-primary {
     padding:13px 30px;
-    background: linear-gradient(135deg, #1f2937, #374151);
-    color:#f9fafb; font-weight:700; font-size:14px; border-radius:10px;
+    background: linear-gradient(135deg, var(--teal), var(--blue));
+    color:#050810; font-weight:700; font-size:14px; border-radius:10px;
     text-decoration:none; transition:all .25s; letter-spacing:.3px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 4px 20px rgba(0,212,170,0.3);
   }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,0,0,0.28); }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,212,170,0.45); }
   .btn-outline {
     padding:13px 30px; border:1px solid var(--border);
     color:var(--text); font-weight:600; font-size:14px; border-radius:10px;
@@ -179,14 +178,14 @@
     background: rgba(255,255,255,0.03);
     backdrop-filter: blur(8px);
   }
-  .btn-outline:hover { border-color:var(--teal); color:var(--teal); background:rgba(249,115,22,0.06); }
+  .btn-outline:hover { border-color:var(--teal); color:var(--teal); background:rgba(0,212,170,0.06); }
 
-  .hero-contact { display:flex; gap:20px; margin-top:20px; flex-wrap:wrap; }
+  .hero-contact { display:flex; gap:24px; margin-top:36px; flex-wrap:wrap; }
   .hero-contact a {
     color:var(--muted); text-decoration:none; font-size:13px;
     display:flex; align-items:center; gap:6px; transition:color .2s;
   }
-  .hero-contact a:hover { color:#374151; }
+  .hero-contact a:hover { color:var(--teal); }
 
   /* SECTIONS */
   section { padding:80px 8%; }
@@ -200,7 +199,7 @@
   .section-title {
     font-family:'Space Grotesk',sans-serif;
     font-size: clamp(28px,4vw,46px);
-    font-weight:800; letter-spacing:-1.5px; color:var(--text); margin-bottom:10px;
+    font-weight:800; letter-spacing:-1.5px; color:#fff; margin-bottom:10px;
   }
   .section-sub { color:var(--muted); max-width:600px; margin-bottom:52px; line-height:1.7; }
   .divider {
@@ -212,9 +211,8 @@
   #sectors {
     background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
     position:relative;
-    padding-top: 36px;
   }
-  .sectors-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; align-items:stretch; }
+  .sectors-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
   .sector-card {
     background: var(--card);
     border:1px solid var(--border);
@@ -225,7 +223,7 @@
   }
   .sector-card::before {
     content:''; position:absolute; inset:0; border-radius:16px;
-    background: linear-gradient(135deg, rgba(249,115,22,0.06) 0%, rgba(245,158,11,0.06) 100%);
+    background: linear-gradient(135deg, rgba(0,212,170,0.06) 0%, rgba(79,156,249,0.06) 100%);
     opacity:0; transition:opacity .3s;
   }
   .sector-card::after {
@@ -233,12 +231,12 @@
     background: var(--grad);
     transform:scaleX(0); transform-origin:left; transition:transform .4s;
   }
-  .sector-card:hover { border-color:rgba(249,115,22,0.3); transform:translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(249,115,22,0.08); }
+  .sector-card:hover { border-color:rgba(0,212,170,0.3); transform:translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,212,170,0.08); }
   .sector-card:hover::before { opacity:1; }
   .sector-card:hover::after { transform:scaleX(1); }
   .sector-icon { font-size:30px; margin-bottom:14px; }
-  .sector-name { font-weight:700; font-size:14px; color:var(--text); margin-bottom:5px; }
+  .sector-name { font-weight:700; font-size:14px; color:#fff; margin-bottom:5px; }
   .sector-clients { font-size:12px; color:var(--muted); }
 
   /* TIMELINE */
@@ -247,7 +245,7 @@
   .timeline::before {
     content:''; position:absolute; left:24px; top:0; bottom:0; width:1px;
     background: linear-gradient(to bottom, var(--teal), var(--blue), var(--purple), transparent);
-    box-shadow: 0 0 8px rgba(249,115,22,0.2);
+    box-shadow: 0 0 8px rgba(0,212,170,0.2);
   }
   .timeline-item {
     padding-left:70px; margin-bottom:44px; position:relative;
@@ -256,33 +254,33 @@
     position:absolute; left:16px; top:6px;
     width:17px; height:17px; border-radius:50%;
     background:var(--bg); border:2px solid var(--teal);
-    box-shadow: 0 0 0 4px rgba(249,115,22,0.1), 0 0 12px rgba(249,115,22,0.2);
+    box-shadow: 0 0 0 4px rgba(0,212,170,0.1), 0 0 12px rgba(0,212,170,0.2);
     transition: box-shadow .3s;
   }
   .timeline-dot.current {
     background: var(--teal);
-    box-shadow: 0 0 0 4px rgba(249,115,22,0.15), 0 0 20px rgba(249,115,22,0.4);
+    box-shadow: 0 0 0 4px rgba(0,212,170,0.15), 0 0 20px rgba(0,212,170,0.4);
     animation: glowPulse 2.5s ease-in-out infinite;
   }
   @keyframes glowPulse {
-    0%,100% { box-shadow: 0 0 0 4px rgba(249,115,22,0.15), 0 0 20px rgba(249,115,22,0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(249,115,22,0.08), 0 0 30px rgba(249,115,22,0.6); }
+    0%,100% { box-shadow: 0 0 0 4px rgba(0,212,170,0.15), 0 0 20px rgba(0,212,170,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(0,212,170,0.08), 0 0 30px rgba(0,212,170,0.6); }
   }
   .timeline-period { font-size:12px; font-weight:700; letter-spacing:.5px; margin-bottom:4px;
     background: var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  .timeline-company { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:var(--text); margin-bottom:2px; }
+  .timeline-company { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:2px; }
   .timeline-role { font-size:14px; color:var(--muted); margin-bottom:10px; }
   .timeline-location { font-size:12px; color:var(--dim); margin-bottom:12px; display:flex; align-items:center; gap:4px; }
   .timeline-desc { color:var(--muted); font-size:14px; margin-bottom:14px; line-height:1.7; }
   .timeline-tags { display:flex; flex-wrap:wrap; gap:6px; }
   .tag {
-    background:rgba(249,115,22,0.07); border:1px solid rgba(249,115,22,0.2);
+    background:rgba(0,212,170,0.07); border:1px solid rgba(0,212,170,0.2);
     color:var(--teal); font-size:11px; font-weight:500;
     padding:3px 10px; border-radius:20px; transition:all .2s;
   }
-  .tag:hover { background:rgba(249,115,22,0.15); }
-  .tag.blue { background:rgba(245,158,11,0.07); border-color:rgba(245,158,11,0.2); color:var(--blue); }
-  .tag.purple { background:rgba(236,72,153,0.07); border-color:rgba(236,72,153,0.2); color:var(--purple); }
+  .tag:hover { background:rgba(0,212,170,0.15); }
+  .tag.blue { background:rgba(79,156,249,0.07); border-color:rgba(79,156,249,0.2); color:var(--blue); }
+  .tag.purple { background:rgba(167,139,250,0.07); border-color:rgba(167,139,250,0.2); color:var(--purple); }
 
   /* PROJECTS */
   #projects { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
@@ -293,8 +291,8 @@
     cursor:pointer; transition:all .2s; letter-spacing:.3px;
   }
   .filter-btn.active, .filter-btn:hover {
-    background:rgba(249,115,22,0.1); border-color:rgba(249,115,22,0.4);
-    color:var(--teal); box-shadow: 0 0 12px rgba(249,115,22,0.1);
+    background:rgba(0,212,170,0.1); border-color:rgba(0,212,170,0.4);
+    color:var(--teal); box-shadow: 0 0 12px rgba(0,212,170,0.1);
   }
   .projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px; }
   .project-card {
@@ -306,20 +304,20 @@
   }
   .project-card::before {
     content:''; position:absolute; inset:0; border-radius:16px; opacity:0;
-    background: linear-gradient(135deg, rgba(249,115,22,0.04) 0%, rgba(245,158,11,0.04) 100%);
+    background: linear-gradient(135deg, rgba(0,212,170,0.04) 0%, rgba(79,156,249,0.04) 100%);
     transition:opacity .3s;
   }
-  .project-card.featured { border-color:rgba(249,115,22,0.25); }
+  .project-card.featured { border-color:rgba(0,212,170,0.25); }
   .project-card.featured::after {
     content:'FEATURED'; position:absolute; top:16px; right:16px;
     font-size:9px; font-weight:700; letter-spacing:1.5px;
     background: var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    border:1px solid rgba(249,115,22,0.3); padding:3px 8px; border-radius:10px;
-    background-color: rgba(249,115,22,0.08);
+    border:1px solid rgba(0,212,170,0.3); padding:3px 8px; border-radius:10px;
+    background-color: rgba(0,212,170,0.08);
   }
   .project-card:hover {
-    border-color:rgba(249,115,22,0.35); transform:translateY(-4px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(249,115,22,0.06);
+    border-color:rgba(0,212,170,0.35); transform:translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0,212,170,0.06);
   }
   .project-card:hover::before { opacity:1; }
   .project-sector-badge {
@@ -327,7 +325,7 @@
     letter-spacing:.5px; padding:3px 10px; border-radius:20px; margin-bottom:14px;
   }
   .project-client { font-size:12px; color:var(--muted); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
-  .project-name { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.3; }
+  .project-name { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; margin-bottom:8px; line-height:1.3; }
   .project-desc { font-size:13px; color:var(--muted); margin-bottom:16px; line-height:1.65; }
   .project-tech { display:flex; flex-wrap:wrap; gap:5px; }
   .tech-badge {
@@ -353,11 +351,11 @@
     padding:6px 14px; border-radius:8px; transition:all .25s;
     backdrop-filter: blur(4px);
   }
-  .skill-badge:hover { border-color:rgba(249,115,22,0.4); color:var(--teal); background:rgba(249,115,22,0.06); transform:translateY(-1px); }
+  .skill-badge:hover { border-color:rgba(0,212,170,0.4); color:var(--teal); background:rgba(0,212,170,0.06); transform:translateY(-1px); }
   .skill-badge.primary {
-    border-color:rgba(249,115,22,0.3); background:rgba(249,115,22,0.08);
+    border-color:rgba(0,212,170,0.3); background:rgba(0,212,170,0.08);
     color:var(--teal);
-    box-shadow: 0 0 10px rgba(249,115,22,0.08);
+    box-shadow: 0 0 10px rgba(0,212,170,0.08);
   }
 
   /* ACHIEVEMENTS */
@@ -372,12 +370,12 @@
   }
   .achievement-card::before {
     content:''; position:absolute; inset:0;
-    background: linear-gradient(135deg, rgba(249,115,22,0.05) 0%, rgba(245,158,11,0.05) 100%);
+    background: linear-gradient(135deg, rgba(0,212,170,0.05) 0%, rgba(79,156,249,0.05) 100%);
     opacity:0; transition:opacity .3s;
   }
   .achievement-card:hover {
-    border-color:rgba(249,115,22,0.3); transform:translateY(-4px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 24px rgba(249,115,22,0.08);
+    border-color:rgba(0,212,170,0.3); transform:translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 24px rgba(0,212,170,0.08);
   }
   .achievement-card:hover::before { opacity:1; }
   .achievement-num {
@@ -386,7 +384,7 @@
     background: linear-gradient(135deg, var(--teal), var(--blue));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
-    filter: drop-shadow(0 0 12px rgba(249,115,22,0.3));
+    filter: drop-shadow(0 0 12px rgba(0,212,170,0.3));
   }
   .achievement-label { font-size:13px; color:var(--muted); line-height:1.5; }
 
@@ -403,14 +401,14 @@
     content:''; position:absolute; top:0; left:0; right:0; height:1px;
     background: var(--grad); transform:scaleX(0); transform-origin:left; transition:transform .4s;
   }
-  .edu-card:hover { border-color:rgba(249,115,22,0.3); transform:translateY(-2px); }
+  .edu-card:hover { border-color:rgba(0,212,170,0.3); transform:translateY(-2px); }
   .edu-card:hover::before { transform:scaleX(1); }
   .edu-type {
     font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
     background: var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     margin-bottom:10px;
   }
-  .edu-degree { font-size:16px; font-weight:700; color:var(--text); margin-bottom:4px; }
+  .edu-degree { font-size:16px; font-weight:700; color:#fff; margin-bottom:4px; }
   .edu-institution { font-size:13px; color:var(--muted); }
 
   /* CONTACT */
@@ -423,13 +421,13 @@
   #contact::before {
     content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%);
     width:600px; height:400px;
-    background: radial-gradient(ellipse, rgba(249,115,22,0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,212,170,0.06) 0%, transparent 70%);
     pointer-events:none;
   }
   .contact-title {
     font-family:'Space Grotesk',sans-serif;
     font-size:clamp(28px,4vw,44px); font-weight:800; letter-spacing:-1px;
-    background: linear-gradient(135deg, var(--text), var(--teal));
+    background: linear-gradient(135deg, #fff, var(--teal));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     margin-bottom:14px;
   }
@@ -441,7 +439,7 @@
     color:var(--text); text-decoration:none; font-size:14px; font-weight:500;
     transition:all .25s; background:rgba(255,255,255,0.03); backdrop-filter:blur(8px);
   }
-  .contact-link:hover { border-color:rgba(249,115,22,0.4); color:var(--teal); background:rgba(249,115,22,0.06); transform:translateY(-2px); }
+  .contact-link:hover { border-color:rgba(0,212,170,0.4); color:var(--teal); background:rgba(0,212,170,0.06); transform:translateY(-2px); }
 
   footer {
     background:var(--bg); padding:20px 8%;
@@ -452,202 +450,6 @@
   /* FADE-IN */
   .fade-in { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
   .fade-in.visible { opacity:1; transform:translateY(0); }
-
-  /* NAV BRAND */
-  .nav-brand {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 16px; font-weight: 700; letter-spacing: -0.3px;
-    background: var(--grad);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-decoration: none; white-space: nowrap;
-  }
-
-  /* BACK TO TOP */
-  #back-to-top {
-    position: fixed; bottom: 28px; right: 28px; z-index: 150;
-    width: 42px; height: 42px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal), var(--blue));
-    color: #050810; border: none; cursor: pointer; font-size: 20px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; transform: translateY(12px);
-    transition: opacity .3s, transform .3s;
-    box-shadow: 0 4px 16px rgba(249,115,22,0.35);
-  }
-  #back-to-top.visible { opacity: 1; transform: translateY(0); }
-  #back-to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(249,115,22,0.5); }
-
-  /* STATS STRIP */
-  .stats-strip {
-    background: linear-gradient(90deg,rgba(249,115,22,0.04),rgba(245,158,11,0.04),rgba(236,72,153,0.04));
-    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
-    padding:0 8%; display:flex; overflow:hidden;
-  }
-  .stats-strip-item {
-    flex:1; text-align:center; padding:28px 8px; position:relative;
-  }
-  .stats-strip-item + .stats-strip-item::before {
-    content:''; position:absolute; left:0; top:20%; bottom:20%;
-    width:1px; background:var(--border);
-  }
-  .stats-strip-num {
-    font-family:'Space Grotesk',sans-serif;
-    font-size:clamp(26px,3vw,42px); font-weight:800; line-height:1;
-    background:var(--grad);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    filter:drop-shadow(0 0 8px rgba(249,115,22,0.2));
-  }
-  .stats-strip-label { font-size:12px; color:var(--muted); margin-top:6px; line-height:1.4; }
-  @media(max-width:700px){
-    .stats-strip { flex-wrap:wrap; }
-    .stats-strip-item { flex:1 1 50%; }
-    .stats-strip-item + .stats-strip-item::before { display:none; }
-  }
-
-  /* SECTOR CARDS — clickable */
-  .sector-card { cursor:pointer; }
-  .sector-card.active {
-    border-color:rgba(249,115,22,0.55);
-    background:rgba(249,115,22,0.07);
-    box-shadow:0 0 24px rgba(249,115,22,0.12);
-  }
-  .sector-card.active .sector-view-hint { opacity:1; transform:translateX(0); }
-  .sector-view-hint {
-    display:inline-flex; align-items:center; gap:4px;
-    font-size:11px; color:var(--teal); font-weight:600; letter-spacing:.3px;
-    margin-top:10px; opacity:0; transform:translateX(-4px);
-    transition:opacity .2s, transform .2s;
-  }
-  .sector-card:hover .sector-view-hint { opacity:1; transform:translateX(0); }
-
-  /* TWO-COLUMN HERO */
-  .hero-layout {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 40px;
-    align-items: start;
-    width: 100%;
-    position: relative; z-index: 1;
-  }
-  .hero-right {
-    background: rgba(255,255,255,0.025);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 20px 18px;
-    backdrop-filter: blur(14px);
-    position: sticky; top: 76px;
-  }
-  .hero-right-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 8px;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-rs-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px; font-weight: 800; line-height: 1;
-    background: linear-gradient(135deg, #1f2937, #6b7280);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    filter: drop-shadow(0 0 6px rgba(0,0,0,0.1));
-  }
-  .hero-rs-label { font-size: 10px; color: var(--muted); margin-top: 3px; line-height: 1.3; }
-  .hero-right .skill-bars-grid { grid-template-columns: 1fr; gap: 7px; margin-bottom: 0; }
-  .hero-right .skill-bar-label { min-width: 110px; font-size: 11px; }
-  .hero-right .skill-bar-track { height: 4px; }
-  .hero-right .skill-bar-pct { font-size: 10px; }
-  .hero-right .skill-bar-fill,
-  .hero-right .skill-bar-fill.b {
-    background: linear-gradient(90deg, #374151, #9ca3af);
-    box-shadow: none;
-  }
-  @media(max-width:1024px) {
-    .hero-layout { grid-template-columns: 1fr; }
-    .hero-right { position: static; }
-  }
-
-  /* SECTOR ACCORDION PANEL */
-  .sector-accordion-panel {
-    grid-column: 1 / -1;
-    max-height: 0; overflow: hidden;
-    transition: max-height .55s cubic-bezier(.4,0,.2,1);
-  }
-  .sector-accordion-panel.open { max-height: 4000px; }
-  .sector-accordion-inner {
-    border-top: 2px solid rgba(249,115,22,0.4);
-    padding: 24px 0 8px;
-    background: linear-gradient(180deg, rgba(249,115,22,0.03) 0%, transparent 60%);
-    border-radius: 0 0 12px 12px;
-  }
-  .sector-panel-header {
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:20px;
-  }
-  .sector-panel-label {
-    font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    background:var(--grad);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-  }
-  .sector-panel-close {
-    background:rgba(255,255,255,0.05); border:1px solid var(--border);
-    color:var(--muted); font-size:13px; padding:5px 13px; border-radius:8px;
-    cursor:pointer; transition:all .2s;
-  }
-  .sector-panel-close:hover { border-color:rgba(249,115,22,0.4); color:var(--teal); }
-  .sector-panel-grid {
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px;
-  }
-
-  /* SKILL PROFICIENCY BARS */
-  .skill-bars-grid {
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:12px 48px; margin-bottom:48px;
-  }
-  .skill-bar-row { display:flex; align-items:center; gap:12px; }
-  .skill-bar-label { font-size:13px; font-weight:500; color:var(--text); min-width:148px; flex-shrink:0; }
-  .skill-bar-track {
-    flex:1; height:5px; background:rgba(255,255,255,0.07);
-    border-radius:6px; overflow:hidden;
-  }
-  .skill-bar-fill {
-    height:100%; width:0%; border-radius:6px;
-    background:linear-gradient(90deg,var(--teal),var(--blue));
-    transition:width 1.3s cubic-bezier(.4,0,.2,1);
-    box-shadow:0 0 8px rgba(249,115,22,0.3);
-  }
-  .skill-bar-fill.b { background:linear-gradient(90deg,var(--blue),var(--purple)); box-shadow:0 0 8px rgba(245,158,11,0.3); }
-  .skill-bar-pct { font-size:11px; color:var(--muted); font-weight:600; min-width:34px; text-align:right; }
-
-  /* LIGHT THEME — replace invisible white-on-white backgrounds */
-  .sector-card, .project-card, .achievement-card, .edu-card {
-    background: #ffffff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.05);
-  }
-  .skill-badge { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); color: var(--text); }
-  .skill-badge.primary { background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.3); color: var(--teal); }
-  .skill-badge:hover { background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.4); color: var(--teal); }
-  .tech-badge { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); color: var(--muted); }
-  .tech-badge:hover { color: var(--text); border-color: rgba(0,0,0,0.2); }
-  .filter-btn { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.1); color: var(--muted); }
-  .filter-btn.active, .filter-btn:hover { background: rgba(249,115,22,0.08); border-color: rgba(249,115,22,0.4); color: var(--teal); }
-  .btn-outline { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.12); color: var(--text); }
-  .btn-outline:hover { border-color: var(--teal); color: var(--teal); background: rgba(249,115,22,0.06); }
-  .contact-link { background: #ffffff; border-color: rgba(0,0,0,0.1); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .contact-link:hover { border-color: rgba(249,115,22,0.4); color: var(--teal); background: rgba(249,115,22,0.05); }
-  .hero-right { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-  .hero-right-stats { border-bottom-color: rgba(0,0,0,0.08); }
-  .sector-accordion-inner { background: linear-gradient(180deg, rgba(249,115,22,0.04) 0%, transparent 60%); border-top-color: rgba(249,115,22,0.5); }
-  .tag { background: rgba(249,115,22,0.07); border-color: rgba(249,115,22,0.2); }
-  .tag.blue { background: rgba(245,158,11,0.07); border-color: rgba(245,158,11,0.2); color: var(--blue); }
-  .tag.purple { background: rgba(236,72,153,0.07); border-color: rgba(236,72,153,0.2); color: var(--purple); }
-  .timeline::before { box-shadow: none; }
-
-  /* MISSING KEYFRAME for project filter animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 
   /* RESPONSIVE */
   @media(max-width:700px){
@@ -668,7 +470,7 @@
 <div id="scroll-progress"></div>
 
 <nav>
-  <a href="#hero" class="nav-brand">Hari Muppa</a>
+
   <ul class="nav-links">
     <li><a href="#sectors">Sectors</a></li>
     <li><a href="#career">Career</a></li>
@@ -698,105 +500,62 @@
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
   <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-layout">
+  <div class="hero-tag">Open to opportunities</div>
+  <h1 class="hero-name">Harikrishna Muppa</h1>
+  <p class="hero-title">
+    BI Consultant / BI Architect &nbsp;·&nbsp; Analytics Product Owner &nbsp;·&nbsp; Applied AI &nbsp;·&nbsp; Analytical Engineering &nbsp;·&nbsp; AI Solution Lead
+  </p>
 
-    <!-- LEFT: hero content -->
-    <div class="hero-left">
-      <div class="hero-tag">Open to opportunities</div>
-      <h1 class="hero-name">Harikrishna Muppa</h1>
-      <p class="hero-title">
-        <strong>Senior Data Visualization &amp; Experience Manager</strong><br>
-        BI Architect &nbsp;·&nbsp; AI/Agentic Automation Engineer &nbsp;·&nbsp; Tableau &amp; Power BI Leader
-      </p>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">20<span>+</span></div>
-          <div class="hero-stat-label">Years in BI &amp; Analytics</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">8</div>
-          <div class="hero-stat-label">Industry Sectors</div>
-        </div>
-      </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
-      </div>
-      <div class="hero-contact">
-        <a href="mailto:hari.muppa@gmail.com">✉ hari.muppa@gmail.com</a>
-        <a href="tel:+18324691660">📱 +1 832-469-1660</a>
-        <a href="https://www.linkedin.com/in/hari-m-761b1225" target="_blank" rel="noopener">💼 LinkedIn</a>
-        <a href="#contact">📍 Portland (Beaverton), OR</a>
-      </div>
-    </div>
-
-    <!-- RIGHT: impact stats + skill bars -->
-    <div class="hero-right">
-      <div class="hero-right-stats">
-        <div class="hero-rs">
-          <div class="hero-rs-num">70%</div>
-          <div class="hero-rs-label">Reduction in doc effort via AI at Nike</div>
-        </div>
-        <div class="hero-rs">
-          <div class="hero-rs-num">$M+</div>
-          <div class="hero-rs-label">Supply chain decisions enabled</div>
-        </div>
-        <div class="hero-rs">
-          <div class="hero-rs-num">100+</div>
-          <div class="hero-rs-label">Dashboards &amp; reports delivered</div>
-        </div>
-        <div class="hero-rs">
-          <div class="hero-rs-num">25+</div>
-          <div class="hero-rs-label">Enterprise clients globally</div>
-        </div>
-      </div>
-      <div class="section-label" style="margin-bottom:12px;">Proficiency</div>
-      <div class="skill-bars-grid">
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">Tableau</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="98"></div></div>
-          <span class="skill-bar-pct">98%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">SQL &amp; Data Modeling</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="92"></div></div>
-          <span class="skill-bar-pct">92%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">Power BI</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="85"></div></div>
-          <span class="skill-bar-pct">85%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">SAP Business Objects</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="82"></div></div>
-          <span class="skill-bar-pct">82%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">Snowflake</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill b" data-pct="78"></div></div>
-          <span class="skill-bar-pct">78%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">Databricks</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill b" data-pct="72"></div></div>
-          <span class="skill-bar-pct">72%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">Python</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill b" data-pct="68"></div></div>
-          <span class="skill-bar-pct">68%</span>
-        </div>
-        <div class="skill-bar-row">
-          <span class="skill-bar-label">AI / Agentic Tooling</span>
-          <div class="skill-bar-track"><div class="skill-bar-fill b" data-pct="74"></div></div>
-          <span class="skill-bar-pct">74%</span>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- end hero-layout -->
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View Projects</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-contact">
+    <a href="mailto:hari.muppa@gmail.com">✉ hari.muppa@gmail.com</a>
+    <a href="tel:+18324691660">📱 +1 832-469-1660</a>
+    <a>📍 Portland (Beaverton), OR</a>
+  </div>
 </section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" style="padding:48px 8%;">
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-num">70%</div>
+      <div class="achievement-label">Reduction in manual documentation effort via AI automation at Nike</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">20+</div>
+      <div class="achievement-label">Dashboards built for Nike AIR MI manufacturing division</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">13</div>
+      <div class="achievement-label">Quality dashboards delivered for Dr. Reddy's Labs across 5 KPA areas</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">$M+</div>
+      <div class="achievement-label">Supply chain decisions enabled by Nike executive dashboards</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">25+</div>
+      <div class="achievement-label">Enterprise clients across 6 countries and 3 continents</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">100+</div>
+      <div class="achievement-label">Dashboards and reports delivered across career</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">9</div>
+      <div class="achievement-label">Industry sectors served with bespoke analytics solutions</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">3</div>
+      <div class="achievement-label">Professional certifications (SAP BO, Deep Learning, Google Figma)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- SECTORS -->
 <section id="sectors">
@@ -804,57 +563,47 @@
   <div class="section-title">8 Sectors. 25+ Clients.</div>
   <p class="section-sub">20 years of enterprise BI delivery across industries that demand precision, trust, and scale.</p>
   <div class="sectors-grid">
-    <div class="sector-card" data-filter="retail">
+    <div class="sector-card">
       <div class="sector-icon">👟</div>
       <div class="sector-name">Athletic Retail &amp; Manufacturing</div>
       <div class="sector-clients">Nike — 7 years</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="telecom">
+    <div class="sector-card">
       <div class="sector-icon">📡</div>
       <div class="sector-name">Telecommunications</div>
       <div class="sector-clients">Sprint, AT&amp;T / Bellsouth</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="energy">
+    <div class="sector-card">
       <div class="sector-icon">⚡</div>
       <div class="sector-name">Energy &amp; Utilities</div>
       <div class="sector-clients">TS Genco, AP Genco</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="pharma">
+    <div class="sector-card">
       <div class="sector-icon">💊</div>
       <div class="sector-name">Healthcare &amp; Pharma</div>
       <div class="sector-clients">Dr. Reddy's Labs, Telligen</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="fnb">
+    <div class="sector-card">
       <div class="sector-icon">🥤</div>
       <div class="sector-name">Food &amp; Beverage</div>
       <div class="sector-clients">Tate &amp; Lyle, Coca-Cola, Florida Crystals</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="finance">
+    <div class="sector-card">
       <div class="sector-icon">🏦</div>
       <div class="sector-name">Financial Services</div>
       <div class="sector-clients">Ditech Home Loans, Morgan Stanley</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="tech">
+    <div class="sector-card">
       <div class="sector-icon">💻</div>
       <div class="sector-name">Technology &amp; IT</div>
       <div class="sector-clients">HP, Capgemini</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
-    <div class="sector-card" data-filter="govt">
+    <div class="sector-card">
       <div class="sector-icon">🏛️</div>
       <div class="sector-name">Government &amp; Defense</div>
       <div class="sector-clients">RCI (Research Centre Imarat), AP CM Office</div>
-      <div class="sector-view-hint">View Projects ↗</div>
     </div>
   </div>
-
-
 </section>
 
 <div class="divider"></div>
@@ -863,7 +612,7 @@
 <section id="career">
   <div class="section-label">Career Journey</div>
   <div class="section-title">20 Years of Growth</div>
-  <p class="section-sub">From BI developer to visualization leader — across consulting giants, startups, and a global athletic brand.</p>
+  <p class="section-sub">From BI developer to BI architect and analytics product owner — 20 years of design, code development and implementation of Business Intelligence and Advanced Analytics solutions across consulting giants, startups, and a global athletic brand.</p>
 
   <div class="timeline">
 
@@ -873,7 +622,7 @@
       <div class="timeline-company">Nike, Inc.</div>
       <div class="timeline-role">Senior Visualization Developer — Supply Chain Planning Technology</div>
       <div class="timeline-location">📍 Beaverton, Oregon</div>
-      <div class="timeline-desc">Lead enterprise dashboarding and AI-powered automation initiatives for Nike's Marketplace DP&amp;R, DSM, and SCPT squads. Dashboards used in multimillion-dollar supply chain decisions and accessible to Nike's top-level management.</div>
+      <div class="timeline-desc">Lead end-to-end design, code development and implementation of Business Intelligence and Advanced Analytics solutions for Nike's Marketplace DP&amp;R, DSM, and SCPT squads. Act as product owner for analytics delivery — translating in-depth business analysis into scalable dashboards and AI-automation tools used in multimillion-dollar supply chain decisions by Nike's senior leadership.</div>
       <div class="timeline-tags">
         <span class="tag">Tableau 2024.3</span>
         <span class="tag">Power BI</span>
@@ -921,7 +670,7 @@
       <div class="timeline-company">OTSI</div>
       <div class="timeline-role">Team Lead — BI &amp; Visualization</div>
       <div class="timeline-location">📍 Hyderabad, India</div>
-      <div class="timeline-desc">Led delivery across four major client engagements: Sprint Telecom (network analytics), HP (automation insights), Research Centre Imarat (SAP modules), and TS/AP Genco (government power sector dashboards used by the Chief Minister of Andhra Pradesh).</div>
+      <div class="timeline-desc">Led delivery across four major client engagements: Sprint Telecom (network analytics), HP (automation insights), Research Centre Imarat (SAP modules), and TS/AP Genco (government power sector dashboards used by the Chief Minister of Andhra Pradesh). Served as technical liaison between business stakeholders and development teams — managed project planning, Agile delivery, and onsite-offshore coordination across India and US client sites.</div>
       <div class="timeline-tags">
         <span class="tag">Tableau 8–9</span>
         <span class="tag">Vertica</span>
@@ -939,7 +688,7 @@
       <div class="timeline-company">Capgemini Consulting India</div>
       <div class="timeline-role">Consultant — BI &amp; Analytics</div>
       <div class="timeline-location">📍 Mumbai, India</div>
-      <div class="timeline-desc">Served global clients across food &amp; beverage, pharma, and telecom. Designed SAP BO universes, Xcelsius dashboards, and WebI reports. Clients included Tate &amp; Lyle, Coca-Cola, Florida Crystals, Dr. Reddy's Labs, and AT&amp;T.</div>
+      <div class="timeline-desc">Served global clients across food &amp; beverage, pharma, and telecom — full design, code development and implementation cycle on SAP BO universes, Xcelsius dashboards, and WebI reports. Operated in onsite-offshore delivery model across Mumbai, Atlanta, and Decatur client sites. Clients included Tate &amp; Lyle, Coca-Cola, Florida Crystals, Dr. Reddy's Labs, and AT&amp;T.</div>
       <div class="timeline-tags">
         <span class="tag">SAP Business Objects</span>
         <span class="tag">Xcelsius</span>
@@ -992,19 +741,69 @@
 
   <div class="projects-grid" id="projects-grid">
 
-    <!-- Nike: AI Doc Generator -->
+    <!-- AI Data Governance Engine -->
     <div class="project-card featured" data-sector="ai">
-      <span class="project-sector-badge" style="background:rgba(0,201,167,0.1);color:#00c9a7;border:1px solid rgba(0,201,167,0.25);">AI / Agentic</span>
-      <div class="project-client">📍 Nike, Beaverton OR &nbsp;·&nbsp; Feb–Mar 2026</div>
-      <div class="project-name">Tableau Automatic Documentation Generator</div>
-      <div class="project-desc">Architected an end-to-end AI documentation pipeline using Cursor AI and Databricks LLM. Users provide Tableau Server PAT credentials; the system auto-generates context-aware technical docs for hundreds of dashboards — cutting manual effort by 70% and delivering via a Streamlit UI deployed on Databricks.</div>
+      <span class="project-sector-badge" style="background:rgba(0,212,170,0.1);color:#00d4aa;border:1px solid rgba(0,212,170,0.25);">AI / Agentic</span>
+      <div class="project-client">📍 Nike Enterprise &nbsp;·&nbsp; 2025–2026</div>
+      <div class="project-name">Generative AI Data Governance &amp; Cataloging Engine</div>
+      <div class="project-desc">Architected an enterprise AI documentation engine using DBRX Instruct (Mixture-of-Experts LLM) via Databricks Mosaic AI Model Serving. Integrated Tableau MCP to ground the LLM safely in the enterprise semantic layer via authenticated endpoints. Deployed a containerised Streamlit app inside Databricks Apps over the internal corporate network — zero data leakage. Reduced manual documentation effort by 70% and standardised metadata quality across hundreds of dashboards. Showcased at Nike hackathons.</div>
       <div class="project-tech">
-        <span class="tech-badge">Cursor AI</span>
-        <span class="tech-badge">Databricks LLM</span>
+        <span class="tech-badge">DBRX Instruct</span>
+        <span class="tech-badge">Tableau MCP</span>
+        <span class="tech-badge">Databricks Apps</span>
+        <span class="tech-badge">Mosaic AI</span>
         <span class="tech-badge">Streamlit</span>
         <span class="tech-badge">Python</span>
-        <span class="tech-badge">REST API</span>
         <span class="tech-badge">RAG</span>
+        <span class="tech-badge">Cursor AI</span>
+      </div>
+    </div>
+
+    <!-- Generative BI Migration Engine -->
+    <div class="project-card featured" data-sector="ai">
+      <span class="project-sector-badge" style="background:rgba(0,212,170,0.1);color:#00d4aa;border:1px solid rgba(0,212,170,0.25);">AI / Agentic</span>
+      <div class="project-client">📍 Nike Cloud Data Infrastructure &nbsp;·&nbsp; 2025</div>
+      <div class="project-name">Generative BI Migration Engine</div>
+      <div class="project-desc">Architected an automated metadata parsing engine that extracts and deserialises structural XML from enterprise BI workbooks — bypassing visual frontends entirely. Engineered automated Snowflake SQL → Databricks Spark SQL &amp; Unity Catalog ANSI-SQL dialect transpilation across hundreds of workbook configs. Designed idempotent, deterministic execution with rule-based LLM guardrails — eliminating hallucinated connection strings and ensuring every migrated workbook passed validation before deployment. Business users experienced zero disruption to metrics or KPI definitions.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Cursor AI (Agentic)</span>
+        <span class="tech-badge">Spark SQL</span>
+        <span class="tech-badge">Unity Catalog</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">Databricks</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">XML Parsing</span>
+      </div>
+    </div>
+
+    <!-- Text-to-SQL / RLS AI Portal -->
+    <div class="project-card featured" data-sector="ai">
+      <span class="project-sector-badge" style="background:rgba(0,212,170,0.1);color:#00d4aa;border:1px solid rgba(0,212,170,0.25);">AI / Agentic</span>
+      <div class="project-client">📍 Nike — Governed AI Analytics &nbsp;·&nbsp; 2025</div>
+      <div class="project-name">Text-to-SQL Semantic Layer &amp; RLS AI Guardrail Portal</div>
+      <div class="project-desc">Architected enterprise semantic context layers and metadata frameworks to ground generative AI text-to-SQL engines — eliminating analytical hallucinations across Nike's reporting estate. Engineered governed data modeling frameworks with Row-Level Security integrated with Active Directory, ensuring AI data agents strictly adhere to corporate data privacy and compliance guardrails. Translated raw database schemas into high-value semantic definitions for autonomous AI analysts across Product, Supply Chain, and Finance.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Text-to-SQL</span>
+        <span class="tech-badge">Semantic Layer</span>
+        <span class="tech-badge">RLS / Active Directory</span>
+        <span class="tech-badge">Databricks</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">Python</span>
+      </div>
+    </div>
+
+    <!-- Inventory Health + Lost Demand -->
+    <div class="project-card featured" data-sector="retail">
+      <span class="project-sector-badge" style="background:rgba(79,156,249,0.1);color:#4f9cf9;border:1px solid rgba(79,156,249,0.25);">Athletic Retail</span>
+      <div class="project-client">📍 Nike Marketplace &amp; Supply Chain &nbsp;·&nbsp; 2023–2024</div>
+      <div class="project-name">Inventory Health, Lost Demand &amp; In-Stock Rate Dashboards</div>
+      <div class="project-desc">Built Nike's Inventory Health dashboard surfacing WOH (Weeks on Hand) and WOS (Weeks of Supply) KPIs across two primary channels with Dynamic Zone Visibility for self-service pivoting across Channel, GEO, Gender, and Division. Connected the Lost Demand dashboard (why customers are lost by channel &amp; segment) directly to the In-Stock Rate dashboard to surface inventory as the root cause — giving Product, Growth, and Supply Chain a shared causal view for the first time. Used by senior Nike leadership for inventory, pricing, and channel prioritisation decisions.</div>
+      <div class="project-tech">
+        <span class="tech-badge">Tableau 2024.3</span>
+        <span class="tech-badge">Snowflake</span>
+        <span class="tech-badge">Dynamic Zone Visibility</span>
+        <span class="tech-badge">LOD Expressions</span>
+        <span class="tech-badge">Parameter Actions</span>
       </div>
     </div>
 
@@ -1013,13 +812,12 @@
       <span class="project-sector-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;border:1px solid rgba(59,130,246,0.25);">Athletic Retail</span>
       <div class="project-client">📍 Nike, Beaverton OR &nbsp;·&nbsp; Sep 2022 – Present</div>
       <div class="project-name">Nike Marketplace DP&amp;R — DSM &amp; SCPT</div>
-      <div class="project-desc">Built multiple key dashboards for Nike's DSM and SCPT squads. <strong style="color:var(--text)">IHE (Inventory Health Evaluation)</strong> — conducted global user interviews across regions to gather requirements, translating stakeholder inputs into an actionable dashboard tracking actuals and projections on inventory, sales, and shipments. <strong style="color:var(--text)">Lost Demand</strong> and <strong style="color:var(--text)">In-Stock Rate</strong> dashboards helping supply planners identify missed revenue opportunities and monitor on-shelf availability across the marketplace. <strong style="color:var(--text)">SBR vs. Target</strong> using O9 data for 6-season rolling forecasts. <strong style="color:var(--text)">Tableau Server Telemetry</strong> — built on PostgreSQL and Tableau Server connection to surface and retire dashboards inactive for 180+ days, improving server governance and performance. Dashboards accessed by Nike's top-level management.</div>
+      <div class="project-desc">Built IHE (Inventory Health Evaluation) dashboards — providing actuals and projections on inventory, sales, and shipments across the marketplace. Developed SBR vs. Target dashboard using O9 data for 6-season rolling forecasts, directly supporting supply chain planner decision-making. Dashboards accessible to Nike's top-level management.</div>
       <div class="project-tech">
         <span class="tech-badge">Tableau 2024.3</span>
         <span class="tech-badge">Power BI</span>
         <span class="tech-badge">Snowflake</span>
         <span class="tech-badge">Databricks</span>
-        <span class="tech-badge">PostgreSQL</span>
         <span class="tech-badge">DAX</span>
         <span class="tech-badge">LOD Expressions</span>
       </div>
@@ -1098,10 +896,10 @@
 
     <!-- DR Reddy's -->
     <div class="project-card" data-sector="pharma">
-      <span class="project-sector-badge" style="background:rgba(249,115,22,0.1);color:#f97316;border:1px solid rgba(249,115,22,0.25);">Pharma</span>
+      <span class="project-sector-badge" style="background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.25);">Pharma</span>
       <div class="project-client">📍 Dr. Reddy's Laboratories &nbsp;·&nbsp; Aug 2012 – Jan 2013</div>
       <div class="project-name">DRL Quality Analytics Dashboards</div>
-      <div class="project-desc">33 dashboards across 5 Quality KPA areas (market complaints, OOS, incidents, change control, CAPA) each tracking 20 KPIs. Enabled data-driven quality decisions across plants, markets, and root-cause categories.</div>
+      <div class="project-desc">13 dashboards across 5 Quality KPA areas (market complaints, OOS, incidents, change control, CAPA) each tracking 20 KPIs. Enabled data-driven quality decisions across plants, markets, and root-cause categories.</div>
       <div class="project-tech">
         <span class="tech-badge">BO XI 4.0</span>
         <span class="tech-badge">SAP BEX</span>
@@ -1189,7 +987,7 @@
 <section id="skills">
   <div class="section-label">Technical Skills</div>
   <div class="section-title">Full-Stack BI Toolkit</div>
-  <p class="section-sub">From data modeling and SQL to AI-powered automation and enterprise visualization platforms.</p>
+  <p class="section-sub">Business Intelligence and Advanced Analytics — from data modeling, data integration and semantic layers to AI-powered automation, performance tuning, and enterprise visualization platforms. Delivery via Agile, SDLC, and onsite-offshore models.</p>
 
   <div class="skills-grid">
 
@@ -1211,8 +1009,10 @@
       <div class="skill-group-title">Databases &amp; Cloud Data</div>
       <div class="skill-items">
         <span class="skill-badge primary">Snowflake</span>
-        <span class="skill-badge primary">Databricks</span>
-        <span class="skill-badge">SQL Server 2008–2014</span>
+        <span class="skill-badge primary">Databricks Lakehouse</span>
+        <span class="skill-badge primary">Unity Catalog</span>
+        <span class="skill-badge">SAP HANA</span>
+        <span class="skill-badge">SQL Server</span>
         <span class="skill-badge">Oracle 9i / 10g</span>
         <span class="skill-badge">Vertica</span>
         <span class="skill-badge">Sybase 12</span>
@@ -1224,10 +1024,17 @@
     <div class="skill-group">
       <div class="skill-group-title">AI &amp; Agentic Tools</div>
       <div class="skill-items">
-        <span class="skill-badge primary">Cursor AI (Agentic Mode)</span>
-        <span class="skill-badge primary">Databricks LLM</span>
+        <span class="skill-badge primary">Cursor AI (Ask / Plan / Agent)</span>
+        <span class="skill-badge primary">DBRX Instruct (MoE LLM)</span>
+        <span class="skill-badge primary">Tableau MCP</span>
+        <span class="skill-badge primary">Databricks Model Serving</span>
+        <span class="skill-badge">Mosaic AI</span>
         <span class="skill-badge">RAG Pipelines</span>
         <span class="skill-badge">Prompt Engineering</span>
+        <span class="skill-badge">Streamlit</span>
+        <span class="skill-badge">GPT-4o</span>
+        <span class="skill-badge">Claude</span>
+        <span class="skill-badge">Gemini</span>
         <span class="skill-badge">Python</span>
         <span class="skill-badge">Deep Learning</span>
       </div>
@@ -1237,12 +1044,14 @@
       <div class="skill-group-title">Data Modeling &amp; Architecture</div>
       <div class="skill-items">
         <span class="skill-badge primary">Star / Snowflake Schema</span>
+        <span class="skill-badge primary">Data Marts &amp; Warehouses</span>
+        <span class="skill-badge primary">Semantic Layer Design</span>
         <span class="skill-badge">Fact &amp; Dimension Design</span>
         <span class="skill-badge">Universe Design (SAP BO)</span>
         <span class="skill-badge">LOD Expressions</span>
         <span class="skill-badge">DAX</span>
-        <span class="skill-badge">Semantic Layer</span>
         <span class="skill-badge">KPI Taxonomy</span>
+        <span class="skill-badge">In-depth Analysis</span>
       </div>
     </div>
 
@@ -1261,15 +1070,37 @@
     </div>
 
     <div class="skill-group">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-items">
+        <span class="skill-badge primary">SQL</span>
+        <span class="skill-badge primary">Python</span>
+        <span class="skill-badge">PL/SQL</span>
+        <span class="skill-badge">T-SQL</span>
+        <span class="skill-badge">Spark SQL</span>
+        <span class="skill-badge">Power Query M</span>
+        <span class="skill-badge">Unix Shell Scripting</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
       <div class="skill-group-title">Process &amp; Delivery</div>
       <div class="skill-items">
+        <span class="skill-badge primary">Product Owner</span>
+        <span class="skill-badge primary">Roadmap &amp; Strategy</span>
+        <span class="skill-badge primary">Technical Liaison</span>
+        <span class="skill-badge primary">Data Integration</span>
+        <span class="skill-badge primary">Onsite-Offshore Delivery</span>
         <span class="skill-badge">Agile / Scrum</span>
+        <span class="skill-badge">Project Planning / SDLC</span>
         <span class="skill-badge">Jira</span>
-        <span class="skill-badge">SAP HR / MM / FICO</span>
+        <span class="skill-badge">Confluence</span>
+        <span class="skill-badge">Git</span>
         <span class="skill-badge">Row-Level Security</span>
         <span class="skill-badge">UAT Coordination</span>
         <span class="skill-badge">Team Leadership</span>
         <span class="skill-badge">Stakeholder Training</span>
+        <span class="skill-badge">Tableau Prep</span>
+        <span class="skill-badge">SAP HR / MM / FICO</span>
       </div>
     </div>
 
@@ -1277,11 +1108,17 @@
       <div class="skill-group-title">Power BI Advanced Features</div>
       <div class="skill-items">
         <span class="skill-badge">DAX Measures</span>
+        <span class="skill-badge">Power Query M</span>
         <span class="skill-badge">RLS</span>
         <span class="skill-badge">Incremental Refresh</span>
         <span class="skill-badge">Composite Models</span>
+        <span class="skill-badge">Dataflows Gen2</span>
+        <span class="skill-badge">Deployment Pipelines</span>
+        <span class="skill-badge">Paginated Reports</span>
+        <span class="skill-badge">Power BI Premium</span>
         <span class="skill-badge">Performance Tuning</span>
         <span class="skill-badge">Power BI Service Admin</span>
+        <span class="skill-badge primary">SharePoint Integration</span>
       </div>
     </div>
 
@@ -1302,49 +1139,6 @@
 
 <div class="divider"></div>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="section-label">Impact</div>
-  <div class="section-title">By the Numbers</div>
-  <p class="section-sub">Key metrics from 20 years of enterprise analytics delivery.</p>
-  <div class="achievements-grid">
-    <div class="achievement-card">
-      <div class="achievement-num">70%</div>
-      <div class="achievement-label">Reduction in manual documentation effort via AI automation at Nike</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">20+</div>
-      <div class="achievement-label">Dashboards built for Nike AIR MI manufacturing division</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">33</div>
-      <div class="achievement-label">Quality dashboards delivered for Dr. Reddy's Labs across 5 KPA areas</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">$M+</div>
-      <div class="achievement-label">Supply chain decisions enabled by Nike executive dashboards</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">25+</div>
-      <div class="achievement-label">Enterprise clients across 6 countries and 3 continents</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">100+</div>
-      <div class="achievement-label">Dashboards and reports delivered across career</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">8</div>
-      <div class="achievement-label">Industry sectors served with bespoke analytics solutions</div>
-    </div>
-    <div class="achievement-card">
-      <div class="achievement-num">3</div>
-      <div class="achievement-label">Professional certifications (SAP BO, Deep Learning, Google Figma)</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-label">Education &amp; Certifications</div>
@@ -1356,13 +1150,11 @@
       <div class="edu-type">Masters Degree</div>
       <div class="edu-degree">M.S. Information Technology</div>
       <div class="edu-institution">Bharathidasan University</div>
-      <div style="font-size:12px;color:var(--dim);margin-top:8px;"><!-- Update year --> 2003</div>
     </div>
     <div class="edu-card">
       <div class="edu-type">Bachelor's Degree</div>
       <div class="edu-degree">B.Sc. Mathematics, Physics &amp; Chemistry</div>
       <div class="edu-institution">India</div>
-      <div style="font-size:12px;color:var(--dim);margin-top:8px;"><!-- Update year --> 2001</div>
     </div>
     <div class="edu-card">
       <div class="edu-type">Industry Certification</div>
@@ -1389,15 +1181,12 @@
   <div class="contact-links">
     <a href="mailto:hari.muppa@gmail.com" class="contact-link">✉ hari.muppa@gmail.com</a>
     <a href="tel:+18324691660" class="contact-link">📱 +1 832-469-1660</a>
-    <a href="https://www.linkedin.com/in/hari-m-761b1225" target="_blank" rel="noopener" class="contact-link">💼 LinkedIn</a>
-    <a href="https://maps.google.com/?q=Beaverton,Oregon" target="_blank" rel="noopener" class="contact-link">📍 Beaverton / Portland, Oregon</a>
+    <a class="contact-link">📍 Beaverton / Portland, Oregon</a>
   </div>
 </section>
 
-<button id="back-to-top" aria-label="Back to top">↑</button>
-
 <footer>
-  &copy; 2026 Harikrishna Muppa &nbsp;·&nbsp; Senior Data Visualization &amp; Experience Manager &nbsp;·&nbsp; Portland, OR
+  &copy; 2026 Harikrishna Muppa &nbsp;·&nbsp; BI Architect &amp; Analytics Product Owner &nbsp;·&nbsp; Portland, OR
 </footer>
 
 <script>
@@ -1454,91 +1243,6 @@
         if (show) card.style.animation = 'fadeIn .35s ease';
       });
     });
-  });
-
-  // Sector card → accordion panel inserted after card's grid row
-  let activeAccordion = null;
-
-  function removeAccordion() {
-    if (activeAccordion) {
-      activeAccordion.remove();
-      activeAccordion = null;
-    }
-    document.querySelectorAll('.sector-card').forEach(c => c.classList.remove('active'));
-  }
-
-  document.querySelectorAll('.sector-card[data-filter]').forEach(card => {
-    card.addEventListener('click', () => {
-      const isActive = card.classList.contains('active');
-      removeAccordion();
-      if (isActive) return;
-
-      card.classList.add('active');
-      const filter = card.dataset.filter;
-      const sectorName = card.querySelector('.sector-name').textContent;
-
-      // Find the last card in the same grid row (same offsetTop)
-      const allCards = [...document.querySelectorAll('.sector-card')];
-      const rowTop = card.offsetTop;
-      let lastInRow = card;
-      allCards.forEach(c => { if (c.offsetTop === rowTop) lastInRow = c; });
-
-      // Clone matching projects
-      const matches = [...document.querySelectorAll(`#projects-grid .project-card[data-sector="${filter}"]`)];
-      const projectsHTML = matches.map(p => {
-        const clone = p.cloneNode(true);
-        clone.classList.remove('fade-in');
-        clone.style.cssText = 'opacity:1;transform:none;transition-delay:0ms;';
-        return clone.outerHTML;
-      }).join('');
-
-      // Build accordion element
-      const panel = document.createElement('div');
-      panel.className = 'sector-accordion-panel';
-      panel.innerHTML = `
-        <div class="sector-accordion-inner">
-          <div class="sector-panel-header">
-            <span class="sector-panel-label">${sectorName} — ${matches.length} project${matches.length !== 1 ? 's' : ''}</span>
-            <button class="sector-panel-close">✕ Close</button>
-          </div>
-          <div class="sector-panel-grid">${projectsHTML}</div>
-        </div>`;
-
-      panel.querySelector('.sector-panel-close').addEventListener('click', removeAccordion);
-
-      // Insert right after the last card in this row
-      lastInRow.after(panel);
-      activeAccordion = panel;
-
-      // Trigger animation on next frame
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        panel.classList.add('open');
-        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }));
-    });
-  });
-
-  // Skill bar animation on scroll
-  const barObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-          bar.style.width = bar.dataset.pct + '%';
-        });
-        barObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  const barsGrid = document.querySelector('.skill-bars-grid');
-  if (barsGrid) barObserver.observe(barsGrid);
-
-  // Back to top button
-  const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // Scroll-in fade animations
